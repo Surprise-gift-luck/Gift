@@ -146,15 +146,23 @@
       }, 2000);
     }
 
+    
     function sendGift() {
-      const upiId = "surprise.gift.luck@oksbi";  // replace with your UPI ID
-      const payeeName = "YourName";       // replace with your name
-      const amountNumber = selectedAmount.replace(/[^0-9.]/g, ""); // extract only numbers
+  const upiId = "surprise.gift.luck@oksbi";     // your real working UPI ID
+  const payeeName = "Your Name";      // your actual name
+  const amountNumber = selectedAmount.replace(/[^0-9.]/g, "");
 
-      const upiLink = `upi://pay?pa=${encodeURIComponent(upiId)}&pn=${encodeURIComponent(payeeName)}&am=${amountNumber}&cu=INR&tn=Gift%20Amount`;
+  const upiLink = `upi://pay?pa=${encodeURIComponent(upiId)}&pn=${encodeURIComponent(payeeName)}&am=${amountNumber}&cu=INR&tn=Surprise%20Gift`;
 
-      window.location.href = upiLink;
-    }
+  // Create and trigger an anchor tag
+  const link = document.createElement('a');
+  link.href = upiLink;
+  link.style.display = 'none'; // Hide it from view
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
   </script>
 </body>
 </html>
